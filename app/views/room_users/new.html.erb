@@ -1,0 +1,35 @@
+<div class="room_reserve_container">
+  <h3 class="reserve_underbar">予約内容確認</h3>
+  <h3>¥ <%= @room.cost %> / 日</h3>
+  <%= form_with model: @room_user do |f| %>
+    <%= f.hidden_field :user_id,value:current_user.id %>
+    <%= f.hidden_field :room_id,value:@room.id %>
+    <%= f.hidden_field :cost,value:@room.cost %>
+    <%= f.hidden_field :days, value:@days %>
+    <%= f.hidden_field :people,value:@provide_data.people %>
+
+    <div class="reserve_info">
+      <%= f.label :start_date ,"開始日" %><br>
+      <%= f.text_field :start_date,value: @provide_data.start_date.to_s(:datetime_jp),readonly: true %>
+    </div>
+    <div class="reserve_info">
+      <%= f.label :end_date, "終了日" %><br>
+      <%= f.text_field :end_date,value: @provide_data.end_date.to_s(:datetime_jp),readonly: true %>
+    </div>
+    <div class="reserve_info reserve_underbar">
+      <p>使用日数：<%= @days %>日</p>  
+    </div>
+    <div class="reserve_info reserve_underbar">
+      <p>人数：<%= @provide_data.people %>人</p>    
+    </div>
+    <div class="reserve_info">
+      <p><%= f.label :totalamount, "合計金額" %></p>
+      <%= f.text_field :totalamount,value:@totalamount,readonly: true %>
+    </div>
+    <div class="reserve_info reserve_underbar">
+      <p class="confirm_comment">上記内容でよろしければ「予約を確定」を押してください</p>
+    </div>
+    <%= f.submit "予約を確定",class:"btn btn-primary" %>
+    <%= link_to "ルーム詳細に戻る",room_path(@room.id) %>
+  <% end %>
+</div>

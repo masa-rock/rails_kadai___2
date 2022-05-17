@@ -1,0 +1,31 @@
+<div class="account_container">
+  <div class="account_left">
+    <%= render 'shared/account_sidebar' %>
+  </div>
+  <div class="account_right">
+    <div class="user_view_box">
+      <div class="update_content">
+        <div class="row">
+          <h3>アカウント</h3>
+        </div>
+      </div>
+      <div class="update_content">
+        <div class="row">
+          <div class="col-md-3">メールアドレス</div>
+          <div class="col-md-9"><%= current_user.email %></div>
+        </div>
+      </div>
+      <div class="update_content">
+        <div class="row">
+          <div class="col-md-3">パスワード</div>
+          <div class="col-md-9">********</div>
+        </div>
+      </div>
+      <div class="update_content">
+        <div class="row">
+          <%= link_to "編集",edit_user_registration_path,class:"btn-primary col-md-2" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

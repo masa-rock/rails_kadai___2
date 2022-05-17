@@ -1,0 +1,112 @@
+/********************* アカウント共通 **********************/
+.account_label{
+  background-color: red;
+  color:#fff;
+  padding:4px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  margin:0 5px;
+}
+
+
+/********************* アカウントメニューサイドバー **********************/
+.sidebar_container{
+  padding:30px 15px;
+}
+
+#account_sidebar{
+  padding-left:40px;
+}
+
+#account_sidebar li{
+  padding:10px;
+  display: list-item;
+}
+
+.account_sidebar_list{
+  color:#000;
+}
+
+.active{
+  border-right: 3px solid #4a90e2;
+}
+
+.active a{
+  color:#4a90e2;
+}
+
+.active p{
+  color:#4a90e2;
+}
+/********************* アカウント表示画面 **********************/
+.account_container{
+  display: flex;
+}
+
+.account_left{
+  width:16.667%;
+}
+
+.account_right{
+  border-left:2px solid #e2e2e2;
+  background-color: #F6F8F9;
+  width:calc(100% - 16.667%) ;
+  height:1075px;
+}
+
+.user_view_box{
+  margin:30px auto;
+  width:878px;
+  background-color: #fff;
+}
+
+.update_content{
+  margin:0 15px;
+  padding:20px;
+}
+
+.update_content:not(:last-child){
+  border-bottom:1px solid #eaedef;
+}
+
+
+/********************* アカウント編集画面 **********************/
+.password_edit_field{
+  margin-bottom: 16px;
+}
+
+.password_edit_field input{
+  width:100%;
+  padding:6px 12px;
+  border:1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.btn-password-edit{
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.img-center{
+  text-align: center;
+}
+
+.profile-title{
+  font-weight: bold;
+  position:relative;
+}
+
+.profile-title:after{
+  content:"必須";
+  position:absolute;
+  background-color: red;
+  color:#fff;
+  display: block;
+  border-radius: 5px;
+  padding:4px;
+  font-size: 12px;
+  top:0;
+  right:30px;
+}

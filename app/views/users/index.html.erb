@@ -1,0 +1,45 @@
+<div class="top-container">
+  <div class="top-area-search-area">
+    <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+    <%= form_with url: rooms_search_path,method: :get do |f| %>
+      <%= f.label :area,"エリア" %><br>
+      <%= f.text_field :area,placeholder:"東京" %>
+      <%= f.submit "探す",class:"btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="top-area-container">
+  <div class="panel-area m-5">
+    <h1>おすすめのエリア</h1>
+    <div class="row">
+      <div class="panelitem col-lg-3 col-6">
+        <span>東京</span>
+        <%= form_with url: rooms_search_path,method: :get do |f| %>
+            <%= f.hidden_field :area,value:"東京" %>
+            <%= f.submit "",class:"search_area_recommendation tokyo" %>
+        <% end %>
+      </div>
+      <div class="panelitem col-lg-3 col-6">
+        <span>大阪</span>
+        <%= form_with url: rooms_search_path,method: :get do |f| %>
+            <%= f.hidden_field :area,value:"大阪" %>
+            <%= f.submit "",class:"search_area_recommendation osaka" %>
+        <% end %>
+      </div>
+      <div class="panelitem col-lg-3 col-6">
+        <span>京都</span>
+        <%= form_with url: rooms_search_path,method: :get do |f| %>
+          <%= f.hidden_field :area,value:"京都" %>
+          <%= f.submit "",class:"search_area_recommendation kyoto" %>
+        <% end %>
+      </div>
+      <div class="panelitem col-lg-3 col-6">
+        <span>札幌</span>
+        <%= form_with url: rooms_search_path,method: :get do |f| %>
+          <%= f.hidden_field :area,value:"札幌" %>
+          <%= f.submit "",class:"search_area_recommendation sapporo" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
