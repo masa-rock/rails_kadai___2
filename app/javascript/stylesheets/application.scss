@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+.fa_icon {
+  font-family: "Font Awesome 5 Free";
+  // weightは,使いたいフォントがSolidなら900,RegularやBrandsなら400,Lightなら300
+  font-weight: 900;
+}

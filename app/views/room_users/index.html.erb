@@ -1,0 +1,35 @@
+<div class="room_posts_container">
+  <div class="room_chart">
+    <h3 class="pb-3 mb-1">予約済みルーム一覧</h3>
+    <table class="posts_table">
+      <thead>
+        <tr class="text-center posts_table_th">
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @room_users.each do |room_user| %>
+          <tr class="posts_table_td">
+            <td class="posts_img">
+              <% if room_user.room.image.attached? %>
+                <%= image_tag(url_for(room_user.room.image)) %>
+              <% end %>
+            </td>
+            <td class="room_name"><%= link_to "#{room_user.room.name}",room_path(room_user.room_id) %></td>
+            <td><%= room_user.room.introduction %></td>
+            <td><%= room_user.totalamount %></td>
+            <td><%= room_user.start_date.to_s(:datetime_jp) %></td>
+            <td><%= room_user.end_date.to_s(:datetime_jp) %></td>
+            <td><%= room_user.created_at.to_s %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="search_page_inner">
+  <h3>検索結果：<%= @counter %>件</h3>
+  <div class="row">
+    <% @area_s.each do |area|  %>
+      <div class="col-sm-6 col-lg-4 col-xl-3 search_content">
+        <div class="search_inner">
+          <%= link_to room_path(area.id) do %>
+            <% if area.image.attached? %>
+              <%= image_tag(url_for(area.image)) %>
+            <% end %>
+            <div class="search_text_inner">            
+              <h3><%= area.name %></h3>
+              <h4><%= area.introduction %></h4>
+              <p>¥ <%= area.cost %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

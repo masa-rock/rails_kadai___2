@@ -1,0 +1,7 @@
+<div class="sidebar_container">
+  <ul id="account_sidebar">
+    <li class="<%= 'active' if current_page?(users_account_path) %>"><%= link_to "アカウント",users_account_path, class: "account_sidebar_list" %></li>
+    <li class="<%= 'active' if current_page?(edit_user_path(current_user.id)) %>"><%= link_to "プロフィール",edit_user_path(current_user.id), class: "account_sidebar_list" %></li>
+  </ul>
+</div>
+ 

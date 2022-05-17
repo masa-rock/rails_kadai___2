@@ -1,0 +1,46 @@
+<div class="account_container">
+  <div class="account_left">
+    <%= render "shared/account_sidebar" %>
+  </div>
+  <div class="account_right">
+    <div class="user_view_box">
+      <div class="update_content">
+        <div class="row">
+          <h3>プロフィール</h3>
+        </div>
+      </div>
+      <div class="update_content img-center">
+        <div class="profile-image">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag(url_for(current_user.avatar)) %>
+          <% else %>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+          <% end %>
+        </div>
+      </div>
+      <%= form_with model: @user do |f| %>
+      <div class="update_content">
+        <div class="row">
+          <div class="col-md-3"><p class="profile-title">アイコン画像</p></div>
+          <%= f.file_field :avatar,autofocus: true,autocomplete:"avatar",class:"col-md-9",required: true %>
+        </div>
+      </div>
+      <div class="update_content">
+        <div class="row">
+          <div class="col-md-3"><p class="profile-title">名前</p></div>
+          <%= f.text_field :name,autofocus: true, autocomplete:"name",class:"col-md-9",required: true %>
+        </div>
+      </div>
+      <div class="update_content">
+        <div class="row">
+          <div class="col-md-3"><p class="profile-title">自己紹介</p></div>
+          <%= f.text_area :profile,autofocus: true, autocomplete:"profile",class:"col-md-9",required: true %>
+        </div>
+      </div>
+      <div class="update_content">
+        <%= f.submit "更新",class:"btn-primary btn-password-edit col-md-2" %> 
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

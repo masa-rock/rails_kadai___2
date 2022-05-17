@@ -1,0 +1,47 @@
+<div class="room_show">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="room_show_img">
+        <%= image_tag(url_for(@room.image))%>
+      </div>
+      <div class="room_show_detail">
+        <div class="room_show_profile_img">
+          <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+        </div>
+        <div class="room_show_profile">
+          <div class="room_show_name">
+            <%= @room.name%><br>
+          </div>
+          <div class="room_show_address">
+            <%= @room.address%>
+          </div>
+        </div>
+      </div>
+      <div class="room_show_introduction">
+        <%= @room.introduction %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="room_reserve_container">
+        <h3>¥ <%= @room.cost %> / 日</h3>
+        <%= form_with url: new_room_user_path,method: :get do |f| %>
+          <%= f.hidden_field :room_id,value: @room.id %>
+          <% if user_signed_in? %>
+            <%= f.hidden_field :user_id,value: @user.id %>
+          <% end %>
+          <%= f.label :start_date,"開始日"%><br>
+          <%= f.date_field :start_date,required: true %><br>
+          <%= f.label :end_date,"終了日" %><br>
+          <%= f.date_field :end_date,required: true %><br>
+          <%= f.label :people,"人数" %><br>
+          <%= f.number_field :people,required: true %>
+          <% if user_signed_in? %>
+            <%= f.submit "予約する",class:"btn-primary btn-password-edit col-md-2" %> 
+          <% else %>
+            <%= link_to 'ログイン',new_user_session_path,class:"btn-primary btn-password-edit col-md-2"%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

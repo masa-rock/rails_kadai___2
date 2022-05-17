@@ -1,0 +1,46 @@
+<header>
+  <div class="header-top">
+    <div class="header-left">
+      <div class="header-top-img">
+        <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"),"/" %>
+      </div>
+      <%= form_with url: rooms_search_path,method: :get do |f| %>
+        <div class="search-boxes">
+          <div class="search-box-area">
+            <%= f.text_field :area,placeholder:"エリア" %>
+            <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+          </div>
+          <div class="search-box-keyword">
+            <%= f.text_field :keyword,placeholder:"キーワード" %>
+            <span class="icon"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+        <%= f.submit"",class:"display_none" %>
+      <% end %>
+    </div>
+    <div class="header-right">
+      <% if user_signed_in? %>
+          <p class="login_name"><%= current_user.name%></p>
+          <div class="avatar">
+            <div class="profile-image">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag(url_for(current_user.avatar)) %>
+              <% else %>
+                <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+              <% end %>
+            </div>
+            <ul id="account-menu">
+              <li><%= link_to 'ルーム登録',new_room_path %></li>
+              <li><%= link_to '予約済みルーム一覧',room_users_path %></li>
+              <li><%= link_to '登録済みルーム一覧',rooms_posts_path %></li>
+              <li><%= link_to '設定',users_account_path %></li>
+              <li><%= link_to 'ログアウト',destroy_user_session_path,method: :delete %></li>
+            </ul>
+        </div>
+      <% else %>
+        <%= link_to 'ログイン',new_user_session_path,class:"btn login-btn" %>
+        <%= link_to '登録する',new_user_registration_path,class:"btn signup-btn" %>
+      <% end %>
+    </div>
+  </div>
+</header>

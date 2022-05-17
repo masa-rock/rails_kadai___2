@@ -1,0 +1,22 @@
+<div class="container-devise">
+  <div class="devise-frame">
+    <p>ログイン</p>
+    <div class="devise-inner">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>      
+          <div class="field_registration">        
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field_registration">
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "ログイン",class:"sign-btn" %>
+          </div>
+        
+      <% end %>
+      <%= link_to "新しいアカウントを作成",new_user_registration_url %>
+    </div>
+  </div>
+</div>
